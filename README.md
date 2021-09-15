@@ -15,6 +15,6 @@
        - src폴더내 App.js,index.js제외 모두 삭제 
        - package-lock.json 삭제
        - app.js,index.js 파일 내 수정
-   - 리엑트 앱 실행 
+>   - 리엑트 앱 실행 
 
  
