@@ -2,6 +2,64 @@
 
 ## [ 09월 15일 ]
    ### 학습내용
+   1. git 브랜치 설정 
+   
+>   - git version 
+>     git config --global init.defaultBranch main
+>   - git config --list
+>     git branch -m (이전이름) (현재이름) 
+   2. prop-types - 입력값 들의 타입 정의
+>   - 컴포넌트가 전달받은 props 가 원하는 값인지 확인해 주는 역할
+>     - PropTypes.string.<b>isRequired</b> : 필수로 작성  
+   3. state - 동적인 데이터를 다룰때 사용
+   > - 클래스형 컴포넌트에서 사용
+   > - render() 함수 
+   >     - APP 컴포넌트가 JSX를 반환해야하지만 class형 컴포넌트에서는 바로 return을 사용할 수 없으므로 <br> render() 함수 내에서 return문을 사용한다
+   > - state에 있는 값을 사용할때에는 this.state.(...)를 사용한다 
+   > - State에 있는 값을 바꿀 때 this.setState를 사용한다
+   >     - ex) this.setState({ count: this.state.count + 1 })
+   ~~~ 
+   import { Component } from 'react'
+   class App extends Component {
+      constructor(props){
+        super(props)
+        console.log('constructor')
+      }
+      componentDidMount(){
+        console.log('componentDidMoun')
+      }
+      componentDidUpdate() {
+           console.log('componentDidUpdate...goodbye')
+      }
+      state = {
+           count: 0
+     }
+      add = () => {
+        this.setState({ count: this.state.count + 1 })
+      }
+      minus = () => {
+         this.setState({ count: this.state.count - 1 })
+      }
+      render() {
+         return (
+            <div>
+                  <h1>Rhe number is: {this.state.count}</h1>
+                  <button onClick={this.add}>Add</button>
+                  <button onClick={this.minus}>Minus</button>
+            </div>
+
+           )
+       }
+   }
+   ~~~
+   4. 클래스형 컴포넌트의 생명주기 
+   > - constructor() 함수 - component를 생성할때 State 값을 초기화하거나 메서드를 바인딩할 때 사용한다
+   > - componentDidMount() 함수 - constructor() 실행 > render() 실행 > componentDidMount() 실행
+   > - componentDidUpdate() 함수 - 버튼을 클릭하면 setState()함수 실행 > render()함수로 화면이 업데이트 > componentDidUpdate()실행
+   > - componentDidMount() 함수 - 컴포넌트가 화면에서 떠날때 실행
+   ![image](https://user-images.githubusercontent.com/76157596/135557523-70d8310d-b204-47fb-a6d5-0a1e33879f9a.png)
+## [ 09월 15일 ]
+   ### 학습내용
 >   - 컴포넌트가 무엇인지 알아보고 JSX를 학습 
 >      - Potato.js 생성
 >   - 컴포넌트의 데이터를 전달할때에 props를 사용
