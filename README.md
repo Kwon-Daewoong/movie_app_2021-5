@@ -1,5 +1,59 @@
 # 권대웅 201930201 
 
+## [ 10월 06일 ]
+   ### 학습내용
+   1. 영화 Api 사용하기 
+>   - npm install axios
+>   - 영화 목록 데이터 확인하는 방법
+>     https://yts.mx/api/v2/list_movies.json
+>     - status : 응답 상태 메시지 
+>     - data : 영화 데이터
+>     - movie_count : api가 보내준 영화 데이터의 개수
+>     - limit : 보내준 데이터의 개수
+>     - movies키의 서브키로  id, url, imdb_code, title 등을 제공
+   2. 로딩화면 구현
+~~~
+state = {
+        isLoading: true,
+        movies: []
+    }
+    getMovies = async () => {
+        const {
+            data: {
+                data: { movies }
+            }
+        } = await axios.get('https://yts-proxy.now.sh/list_movies.json')
+
+        console.log(movies.data.data.movies)
+    }
+    componentDidMount() {
+        this.getMovies()
+    }
+    render() {
+        const { isLoading } = this.state
+        return (
+
+            <div>
+                {isLoading ? 'Loading...' : '영화 데이터 출력'}
+            </div>
+        )
+    }
+~~~
+>   - stats 
+   >  - isLoading : 로딩중을 확인하기위한 stats 
+   >  - movies : api를 통해 불러온 값을 저장하기위한 배열 
+>   - getMovies()
+   >  - axios.get()을 통해 불러온 값을 mosvies에 저장
+   >  - anync, await : 시간이 필요하다는것을 알리기 위한 키워드 
+      >  -  실제 시간이 필요한 대상인 axios.get()함수 에는 await을 붙인다
+>  - 영화 Api 데이터 확인
+   >  - ```console.log(movies.data.data.movies)```
+
+
+
+
+
+
 ## [ 09월 15일 ]
    ### 학습내용
    1. git 브랜치 설정 
@@ -56,7 +110,7 @@
    > - constructor() 함수 - component를 생성할때 State 값을 초기화하거나 메서드를 바인딩할 때 사용한다
    > - componentDidMount() 함수 - constructor() 실행 > render() 실행 > componentDidMount() 실행
    > - componentDidUpdate() 함수 - 버튼을 클릭하면 setState()함수 실행 > render()함수로 화면이 업데이트 > componentDidUpdate()실행
-   > - componentDidMount() 함수 - 컴포넌트가 화면에서 떠날때 실행
+   > - componentDidMount() 함수 - 컴포넌트가 화면에서 떠날때 실행<br>
    ![image](https://user-images.githubusercontent.com/76157596/135557523-70d8310d-b204-47fb-a6d5-0a1e33879f9a.png)
 ## [ 09월 15일 ]
    ### 학습내용
