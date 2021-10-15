@@ -1,5 +1,76 @@
 # 권대웅 201930201 
 
+## [ 10월 13일 ]
+   ### 학습내용
+   1. movie.js
+>   - movie 컴포넌트는 stats가 필요하지않으므로 함수형 컴포넌트로 작성
+> ```function Movie({ title, year, summary, poster, genres }) {}```
+>   - 영화 데이터를 넘겨받아 정의하고 관리하기 위해 prop-types사용  
+>     ~~~
+>     Movie.propTypes = {
+>         year: PropTypes.number.isRequired,
+>         title: PropTypes.string.isRequired,
+>         summary: PropTypes.string.isRequired,
+>         poster: PropTypes.string.isRequired,
+>         genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+>     }
+>     ~~~ 
+>     - PropTypes.(타입).isRequired
+>     - arrayOf(PropTypes.string) : 문자열을 원소로 하는 배열
+>     - sort_by라는 파라미터를 사용하기위해 
+>     ``` axios.get('https://yts-proxy.now.sh/list_movies.json?sort_by=rating')``` 
+>     axios.get링크에 '?sort_by=rating'을 추가
+>     -  ```this.setState({ movies, isLoading: false })```
+>     api를 통해 영화데이터를 불러오면 isLoading에대한 state 변경
+   2. app.js
+>   - app 컴포넌트에서 movie 컴포넌트 그리기
+```
+render() {
+        const { isLoading, movies } = this.state
+        return (
+            <section className='container'>
+                {isLoading ? (
+                    <div className='loader'>
+                        <span className='loader-text'>Loading...</span>
+                    </div>
+                ) : (
+                    <div className='movies'>
+                        {
+                            movies.map((movie) => {
+                                console.log(movie);
+                                return (
+                                    <Movie
+                                        key={movie.id}
+                                        year={movie.year}
+                                        title={movie.title}
+                                        summary={movie.summary}
+                                        poster={movie.medium_cover_image}
+                                        genres={movie.genres}
+                                    />
+
+                                )
+                            })}
+                    </div>
+                )
+                }
+            </section>
+        )
+    }
+```
+>   - '로딩완료'를 출력하는 자리(삼항연산자를 통해 isLoading state가 false 즉, 로딩이 완료)에 movies.map()을 사용
+>     - map()함수에 movie 컴포넌트를 반환하도록 한다 ``` movies.map((movie) => {}```
+>     - movie 컴포넌트에 props를 전달해야한다 
+>        - key : key값이 없으면 오류가 생김
+>        - poster : ```poster={movie.medium_cover_image}``` - url 주소가 들어감 
+>        - genres : ```genres={movie.genres}``` - genres props가 Movie 컴포넌트에 undefined로 넘어 왔다는 부분 부터 수정
+>        - year, title, summary 등
+   3. App컴포넌트에 HTML 추가하기 
+>  - App 컴포넌트가 반환할 JSX 바깥쪽을 ```<section class = "container'>```
+>  - 로딩은 ```<div class="loader"><span class='loader-text'> ```.... 등등 추가
+>     - 위 코드처럼 className 가 아닌 class 속성으로 지정하면 콘솔에서 오류메세지를 출력한다
+>        - 해결방법 : JSX에 사용한 속성 중 class속성을 className으로 사용
+
+
 ## [ 10월 06일 ]
    ### 학습내용
    1. 영화 Api 사용하기 
