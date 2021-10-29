@@ -1,5 +1,49 @@
 # 권대웅 201930201 
 
+## [10월 27일]
+   ### 학습내용
+   1. Router
+>   - react-router-dom 설치 
+>       - npm install react-router-dom
+>       - :bangbang: 위 패키지의 설치오류가 발생하며 npm을 실행시켰을때 또한 오류가 발생하였다 
+>           - 위 상황 해결법 : node_modules와 package-lock.json 파일을 제거한후 
+>           ~~~ 
+>           $ npm cache clean --force
+>           $ npm rebulid
+>           $ npm install
+>           ~~~
+>           를 실행하면 오류가 해결된다
+>       - components 폴더에 moive컴포넌를 이동시킨다
+>       - routes 폴더에 Home.js와 About.js등 라우터가 보여줄 화면 만들기
+>       - App.js내용을 Home.js로 복사후 수정한다  
+>       - 라우터 테스트
+>           ```
+>           import "./App.css"
+>           import Home from "./routes/Home"
+>           import { HashRouter, Route }            from 'react-router-dom'
+>           import About from './routes/About'
+>           function App() {
+>               return (
+>                   <HashRouter>
+>                       <Route path='/' component={Home}>
+>                           <h1>Home</h1>
+>                       </Route>
+>                       <Route path='/home/introduction' component={Introduction}>
+>                           <h1>Introduction</h1>
+>                       </Route>
+>                       <Route path='/about' component={About}>
+>                           <h1>About</h1>
+>                       </Route>
+>                   </HashRouter>
+>               )
+>           }
+>           export default App 
+>           ```
+>       위 코드에서Home 컴포넌트의 path 가 "/" 인이유는 localhost:3000에 접속하면 기본 컴포넌트로 Home컴포넌트로 지정하기 위함
+>       라우터는 /home/introduction에 접속하면 /, /home, /home/introduction 순서로
+>       path props가 있는지를 찾는다.하지만 모두가 path props를 갖고 있기 때문에 introduction
+>       에 접속하면 이 모든 것이 보인다.
+
 ## [ 10월 13일 ]
    ### 학습내용
    1. movie.js
