@@ -43,11 +43,6 @@ function App() {
     </div>
   );
 }
-// function renderFood(dish) {
-//   return (
-//     <Food name={dish.name} picture={dish.image} />
-//   )
-// }
 function Food({ name, picture }) {
   return (
     <div>
