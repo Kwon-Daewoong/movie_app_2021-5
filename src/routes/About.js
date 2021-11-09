@@ -1,8 +1,10 @@
-function About() {
+import './About.css';
+
+function About(props) {
     return (
-        <span className='about__container'>
+        <div className='about__container'>
             <h1>hello About</h1>
-        </span>
+        </div>
     )
 }
 export default About

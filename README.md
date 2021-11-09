@@ -1,5 +1,55 @@
 # 권대웅 201930201 
 
+## [11월 03일]
+   ### 학습내용
+   1. 컴포넌트 설치 오류
+>   ![image](https://user-images.githubusercontent.com/76157596/140906257-8c66d340-2360-4b0e-b2a8-145b0c37767c.png)
+>   - 컴포넌트 설치 오류등 원인 규명이 되지 않은 오류가 있을경우 
+>           ~~~ 
+>           $ npm cache clean --force
+>           $ npm rebulid
+>           $ rm -rf node_modules
+>           $ npm install
+>           ~~~
+>       * 만일 rm명령이 실행되지 않으면 shell을 관리자 권한으로 실행한 후 다시 시도해 본다.
+>       * 그래도 안될 경우는 탐색기에서 삭제하면 되는데 시간이 조금 걸릴 수는 있다.
+>       * 원인 모를 문제가 발생했을 때 cache clean과 rebuild를 통해 많은 부분 해결되기도 한다.
+   2. Navigtion
+>   - Home과 about버튼을 만들어 화면의 이동 구현
+>       ~~~
+>       <Link to="/">home</Link>
+>       <Link to="/About">About</Link>
+>       ~~~
+   3. 영화 상세 정보 기능
+> - Movie 컴포넌트에 Link 추가
+>    ```<Link to={{ pathname: '/movie-detail', state: { year, title, summary, poster, genres } }}>```
+> - Detail.js 파일(Detail 컴포넌트 생성)
+>    - Detail 컴포넌트에서 영화 제목에 맞는 상세 정보를 넘겨주기 위한 코드를 작성
+>        ~~~
+>componentDidMount() {
+>    const { location, history } = this.props;
+>    if (location.state === undefined) {
+>        history.push('/');
+>    }
+>}
+>
+>render() {
+>    const { location } = this.props;
+>    if (location.state) {
+>        return (
+>            <span>{location.state.title}</span>
+>        )
+>    } else {
+>        return null
+>    }
+>}
+>~~~
+
+>   - App.js 에서 Route를 이용해 Detail을 출력해주기 위한 코드
+>        ```<Route path="/movie-detail" component={Detail} />``` 
+   
+
+
 ## [10월 27일]
    ### 학습내용
    1. Router
