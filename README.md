@@ -25,7 +25,7 @@
 >    ```<Link to={{ pathname: '/movie-detail', state: { year, title, summary, poster, genres } }}>```
 > - Detail.js 파일(Detail 컴포넌트 생성)
 >    - Detail 컴포넌트에서 영화 제목에 맞는 상세 정보를 넘겨주기 위한 코드를 작성
->        ~~~
+>~~~
 >componentDidMount() {
 >    const { location, history } = this.props;
 >    if (location.state === undefined) {
