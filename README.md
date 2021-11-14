@@ -5,14 +5,14 @@
    1. 배포
 >  - 배포를 위해 package.json 수정
 >     - predeploy, deploy 추가
->     ~~~
+>~~~
 > "scripts": {
 >    "start": "react-scripts start",
 >    "build": "react-scripts build",
 >    "predeploy": "npm run build",
 >    "deploy": "gh-pages -d build"
 >  }
->     ~~~
+>~~~
 >   - homepage에 "http://[깃허브 계정].github.io/[저장소 이름]"
 >```"homepage": "http://Kwon-Daewoong.github.io/movie_app_2021-5"```
 >  - ```$ npm install gh-pages```: gh-pages 설치
