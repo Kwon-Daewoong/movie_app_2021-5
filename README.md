@@ -1,5 +1,23 @@
 # 권대웅 201930201 
 
+## [11월 10일]
+   ### 학습내용
+   1. 배포
+>  - 배포를 위해 package.json 수정
+>     - predeploy, deploy 추가
+>     ~~~
+> "scripts": {
+>    "start": "react-scripts start",
+>    "build": "react-scripts build",
+>    "predeploy": "npm run build",
+>    "deploy": "gh-pages -d build"
+>  }
+>     ~~~
+>   - homepage에 "http://[깃허브 계정].github.io/[저장소 이름]"
+>```"homepage": "http://Kwon-Daewoong.github.io/movie_app_2021-5"```
+>  - ```$ npm install gh-pages```: gh-pages 설치
+>  - ```$ npm run deploy```: 배포하기
+>  - 위 순서를 진행한후 hompepage 즉 "http://Kwon-Daewoong.github.io/movie_app_2021-5" 에 접속하면 페이지가 실행됨 
 ## [11월 03일]
    ### 학습내용
    1. 컴포넌트 설치 오류
