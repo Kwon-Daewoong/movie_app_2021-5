@@ -13,7 +13,7 @@
 >    "deploy": "gh-pages -d build"
 >  }
 >~~~
->   - homepage에 "http://[깃허브 계정].github.io/[저장소 이름]"
+>   - homepage에 "http://[깃허브 계정].github.io/[저장소 이름]"<br>
 >```"homepage": "http://Kwon-Daewoong.github.io/movie_app_2021-5"```
 >  - ```$ npm install gh-pages```: gh-pages 설치
 >  - ```$ npm run deploy```: 배포하기
