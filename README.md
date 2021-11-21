@@ -1,5 +1,39 @@
 # 권대웅 201930201 
 
+## [11월 17일]
+   ### 학습내용
+   1. REACT 기본예제 
+>  - "https://ko.reactjs.org/"
+   2. Todo List
+>  - Todo App 과 TodoList 두개의 컴포넌트로 구성
+>  - handleChange는 모든 키보드 입력마다 REACT의 State를 갱신해서 출력
+>     - element에서 확인한다
+>  - 시간 작동 순서 
+>     - 유저 입력 -> handlechange -> REACT의 State 갱신 -> form element가 REACT State를 참조
+>  - 유저 입력을 강제로 대문자로 변경 할 경우에도 사용
+>  ~~~
+>  handleChange(event) { 
+>  this.setState({value: event.target.value.toUpperCase( )})
+>  }
+>  ~~~     
+>  -  handlesubmit은 버튼이 클릭될 때 발생하는 event를 처리
+>  -  render()메소드에서 초기 렌더링을 실행
+>  -  :bangbang: handleSubmit(e)에서 e.prventDefault() 메소드를 사용하는 이유
+>     - 브라우저에서 양식을 제출할 때는 기본적으로 브라우저의 새로 고침이 발생하는데,
+>     React나 SPA의 경우 필요 없는 동작임으로 이를 방지하기위해
+>     사용
+>        1. stae.text의 길이가 0이면 아무 것도 반환하지 않음
+>        2. 0이 아니면 newItem에 입력 받은 text와 현재 시간을 저장.
+>        3. 이렇게 저장된 newItem을 state의 item배열에 저장하고, text를 비움
+   2. Remarkable
+>  - creat-react-app으로 사용
+>     - create-react-app 으로 markdown-editor 프로젝트 생성
+>     - App.js에 문서 코드를 복사 후 component이름을 App으로 수정하기
+>     - rendering은 index.js에 복사
+>     - remarkable 설치
+>     - react와 remarkable 임포트
+
+
 ## [11월 10일]
    ### 학습내용
    1. 배포
