@@ -1,5 +1,25 @@
 # 권대웅 201930201 
 
+## [12월 01일]
+   ### 학습내용
+>  - State and Lifecycle
+>     - "https://ko.reactjs.org/docs/state-and-lifecycle.html"
+   1. 함수에서 클래스로 변환
+>  - React.Component를 확장하는 동일한 이름의 ES6 class를 생성
+>  - render() 함수를 추가
+>  - 함수의 내용을 render()함수 안으로 이동
+>  - render() 내용 안에 있는 props를 this.props로 변경
+>  - 남아있는 빈 함수를 삭제 
+   2. State 올바르게 사용하기
+>  - State를 직접 수정 금지   
+>     - this.state를 지정할 수 있는 유일한 공간은 constructor
+>  - this.props와 this.state는 비동기적으로 업데이트 될 수 있음
+>  - State 업데이트는 병합됨
+>     - setState() 호출시 React는 제공한 객체를 현재 state로 병합
+
+
+
+
 ## [11월 24일]
    ### 학습내용
 >  - react는 처음부터 점진적으로 적용할 수 있도록 설계
